@@ -4,6 +4,14 @@ Assignment 1 (Linux)
 Create a directory named test_dir using mkdir.
 Inside test_dir, create an empty file called example.txt.
 Rename example.txt to renamed_example.txt using mv
+Ans..
+cdac@DESKTOP-HGU2B71:~$ mkdir test_dir
+cdac@DESKTOP-HGU2B71:~$ cd test_dir
+cdac@DESKTOP-HGU2B71:~/test_dir$ touch example.txt
+cdac@DESKTOP-HGU2B71:~/test_dir$ mv example.txt renamed_example.txt
+cdac@DESKTOP-HGU2B71:~/test_dir$ ls -l
+total 0
+-rw-r--r-- 1 cdac cdac 0 Sep  3 02:00 renamed_example.txt
 
  
 
@@ -11,27 +19,112 @@ Rename example.txt to renamed_example.txt using mv
 Use cat to display the contents of /etc/passwd.
 Display only the first 5 lines of /etc/passwd using head.
 Display only the last 5 lines of /etc/passwd using tail.
+Ans..
+cdac@DESKTOP-HGU2B71:~/test_dir$ cat /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+games:x:5:60:games:/usr/games:/usr/sbin/nologin
+man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin
+nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+systemd-network:x:100:102:systemd Network Management,,,:/run/systemd:/usr/sbin/nologin
+systemd-resolve:x:101:103:systemd Resolver,,,:/run/systemd:/usr/sbin/nologin
+messagebus:x:102:105::/nonexistent:/usr/sbin/nologin
+systemd-timesync:x:103:106:systemd Time Synchronization,,,:/run/systemd:/usr/sbin/nologin
+syslog:x:104:111::/home/syslog:/usr/sbin/nologin
+_apt:x:105:65534::/nonexistent:/usr/sbin/nologin
+uuidd:x:106:112::/run/uuidd:/usr/sbin/nologin
+tcpdump:x:107:113::/nonexistent:/usr/sbin/nologin
+landscape:x:108:115::/var/lib/landscape:/usr/sbin/nologin
+cdac:x:1000:1000:,,,:/home/cdac:/bin/bash
+
+cdac@DESKTOP-HGU2B71:~/test_dir$ head -n 5 /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+bin:x:2:2:bin:/bin:/usr/sbin/nologin
+sys:x:3:3:sys:/dev:/usr/sbin/nologin
+sync:x:4:65534:sync:/bin:/bin/sync
+
+cdac@DESKTOP-HGU2B71:~/test_dir$ tail -n 5 /etc/passwd
+_apt:x:105:65534::/nonexistent:/usr/sbin/nologin
+uuidd:x:106:112::/run/uuidd:/usr/sbin/nologin
+tcpdump:x:107:113::/nonexistent:/usr/sbin/nologin
+landscape:x:108:115::/var/lib/landscape:/usr/sbin/nologin
+cdac:x:1000:1000:,,,:/home/cdac:/bin/bash
  
 
 3.Searching for Patterns
 Use grep to find all lines containing the word "root" in /etc/passwd.
- 
+Ans..
+cdac@DESKTOP-HGU2B71:~/test_dir$ grep "root" /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+
 
 
 4. Zipping and Unzipping
 Compress the test_dir directory into a file named test_dir.zip using zip.
 Unzip test_dir.zip into a new directory named unzipped_dir.
- 
+Ans..
+cdac@DESKTOP-HGU2B71:~$ zip -r test_dir.zip test_dir
+  adding: test_dir/ (stored 0%)
+  adding: test_dir/renamed_example.txt (stored 0%)
+cdac@DESKTOP-HGU2B71:~$ ls -l
+total 0
+drwxr-xr-x 1 cdac cdac 512 Mar  2  2025 LinuxAssignment
+-rwxr-xr-x 1 cdac cdac 279 Aug  7 15:38 armstrong.sh
+-rwxr-xr-x 1 cdac cdac 294 Aug  7 15:53 fact.sh
+-rwxr-xr-x 1 cdac cdac 314 Aug  7 15:33 largest_number.sh
+-rw-r--r-- 1 cdac cdac  37 Mar  1  2025 myfile.txt
+-rw-r--r-- 1 cdac cdac   1 Mar  1  2025 myfile.txt.save
+drwxr-xr-x 1 cdac cdac 512 Sep  3 02:01 test_dir
+-rw-r--r-- 1 cdac cdac 352 Sep  3 02:31 test_dir.zip
+cdac@DESKTOP-HGU2B71:~$ unzip test_dir.zip -d unzipped_dir
+Archive:  test_dir.zip
+   creating: unzipped_dir/test_dir/
+ extracting: unzipped_dir/test_dir/renamed_example.txt
+cdac@DESKTOP-HGU2B71:~$ ls unzipped_dir/test_dir
+renamed_example.txt
 
 5. Downloading Files
 Use wget to download a file from a URL (e.g., https://example.com/sample.txt).
- 
+Ans..
+cdac@DESKTOP-HGU2B71:~$ wget https://example.com/sample.txt
+--2025-09-03 02:39:32--  https://example.com/sample.txt
+Resolving example.com (example.com)... 2600:1408:ec00:36::1736:7f24, 2600:1408:ec00:36::1736:7f31, 2600:1406:5e00:6::17ce:bc12, ...
+Connecting to example.com (example.com)|2600:1408:ec00:36::1736:7f24|:443... connected.
+HTTP request sent, awaiting response... 404 Not Found
+2025-09-03 02:39:34 ERROR 404: Not Found.
+
+
 6. Changing Permissions
 Create a file named secure.txt and change its permissions to read-only for everyone using chmod.
+Ans..
+cdac@DESKTOP-HGU2B71:~$ touch secure.txt
+cdac@DESKTOP-HGU2B71:~$ chmod 444 secure.txt
+cdac@DESKTOP-HGU2B71:~$ ls -l secure.txt
+-r--r--r-- 1 cdac cdac 0 Sep  3 02:43 secure.txt
  
 7. Working with Environment Variables
 Use export to set a new environment variable called MY_VAR with the value "Hello, Linux!".
+Ans..
+cdac@DESKTOP-HGU2B71:~$ export MY_VAR="Hello,Linux!"
+cdac@DESKTOP-HGU2B71:~$ echo $MY_VAR
+Hello,Linux!
+cdac@DESKTOP-HGU2B71:~$ export MY_VAR="Hello,Linux!"
  
+
 
 
 
